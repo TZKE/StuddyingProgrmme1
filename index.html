@@ -48,7 +48,7 @@
       max-width: 360px;
       width: 100%;
       margin-top: 20px;
-      display: none;
+      animation: fadeSlide 0.6s ease forwards;
     }
 
     .meme-container img {
@@ -68,6 +68,8 @@
       text-shadow: 2px 2px 5px black;
       text-align: center;
       width: 90%;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
     }
 
     .who {
@@ -77,6 +79,16 @@
       color: #c62828;
       display: none;
     }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
   </style>
 </head>
 <body>
@@ -84,7 +96,6 @@
   <h1>Mustafa Meme Machine</h1>
 
   <div class="buttons">
-    <button onclick="revealMeme()">Show Mustafa</button>
     <button onclick="generateMeme()">New Meme</button>
     <button onclick="revealWho()">Who is Mustafa?</button>
   </div>
@@ -105,14 +116,19 @@
       "Mustafa once fixed a bug just by looking at the screen"
     ];
 
-    function revealMeme() {
-      document.getElementById("memeContainer").style.display = "block";
+    window.onload = () => {
       generateMeme();
     }
 
     function generateMeme() {
       const i = Math.floor(Math.random() * memes.length);
-      document.getElementById("memeText").textContent = memes[i];
+      const memeText = document.getElementById("memeText");
+      memeText.style.opacity = 0; // reset before animation
+      memeText.textContent = memes[i];
+
+      // re-trigger animation
+      void memeText.offsetWidth;
+      memeText.style.animation = 'fadeIn 0.8s ease forwards';
     }
 
     function revealWho() {

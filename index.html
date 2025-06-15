@@ -113,7 +113,15 @@
       "Mustafa be like: 'I didn't study... got 100%'",
       "Mustafa doesn't debug. Bugs get scared.",
       "That face when the teacher says: 'group project'",
-      "Mustafa once fixed a bug just by looking at the screen"
+      "Mustafa once fixed a bug just by looking at the screen",
+      "Mustafa says he'll get 0... then casually gets 100.",
+      "He sleeps in class, but wakes up with full mark.",
+      "Mustafa: 'I forgot there was a test' – then tops the class.",
+      "Mustafa studies 10 minutes, remembers everything.",
+      "We stress, he jokes... then gets full marks.",
+      "Mustafa's brain: silent in class, turbo in exam.",
+      "Mustafa helps you study, then beats your score.",
+      "He said: 'I'm done for.' Result: 100."
     ];
 
     window.onload = () => {
@@ -123,10 +131,8 @@
     function generateMeme() {
       const i = Math.floor(Math.random() * memes.length);
       const memeText = document.getElementById("memeText");
-      memeText.style.opacity = 0; // reset before animation
+      memeText.style.opacity = 0;
       memeText.textContent = memes[i];
-
-      // re-trigger animation
       void memeText.offsetWidth;
       memeText.style.animation = 'fadeIn 0.8s ease forwards';
     }

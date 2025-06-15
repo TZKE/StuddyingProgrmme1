@@ -2,57 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mustafa Meme Machine</title>
+  <title>Mustafa Meme Showcase</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #e0eafc, #cfdef3);
+      background: linear-gradient(to bottom right, #f3f4f7, #e2e3e9);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       min-height: 100vh;
-      padding: 30px;
+      padding: 40px 20px;
     }
 
     h1 {
-      margin-bottom: 10px;
-      color: #222;
+      margin-bottom: 20px;
+      color: #2c3e50;
     }
 
     .buttons {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     button {
-      margin: 5px;
-      padding: 12px 20px;
+      margin: 8px;
+      padding: 12px 24px;
       font-size: 16px;
       border: none;
       border-radius: 8px;
-      background-color: #3949ab;
+      background-color: #1e88e5;
       color: white;
       cursor: pointer;
       transition: 0.3s;
     }
 
     button:hover {
-      background-color: #1a237e;
+      background-color: #1565c0;
     }
 
     .meme-container {
       position: relative;
       max-width: 360px;
       width: 100%;
+      margin-top: 20px;
       display: none;
     }
 
     .meme-container img {
       width: 100%;
       border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
     .meme-text {
@@ -62,15 +63,15 @@
       transform: translateX(-50%);
       color: white;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 18px;
       text-shadow: 2px 2px 5px black;
       text-align: center;
       width: 90%;
     }
 
     .who {
-      margin-top: 25px;
-      font-size: 18px;
+      margin-top: 30px;
+      font-size: 20px;
       font-weight: bold;
       color: #c62828;
       display: none;
@@ -88,8 +89,8 @@
   </div>
 
   <div class="meme-container" id="memeContainer">
-    <img src="mustafa.jpg" alt="Mustafa">
-    <div class="meme-text" id="memeText">First meme loading...</div>
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAAAAAAAD... (تم تقصير base64 هنا)" alt="Mustafa">
+    <div class="meme-text" id="memeText">Loading meme...</div>
   </div>
 
   <div class="who" id="whoText">Mustafa is gay</div>
@@ -98,9 +99,9 @@
     const memes = [
       "When Mustafa opens VS Code like it's a game",
       "Mustafa be like: 'I didn't study... got 100%'",
-      "That moment when Mustafa touches the keyboard = magic",
-      "Mustafa doesn't debug... bugs fix themselves.",
-      "Mustafa is the only guy who can crash Google Docs offline."
+      "Mustafa doesn't debug. Bugs get scared.",
+      "That face when the teacher says: 'group project'",
+      "Mustafa once fixed a bug just by looking at the screen"
     ];
 
     function revealMeme() {
@@ -109,8 +110,8 @@
     }
 
     function generateMeme() {
-      const index = Math.floor(Math.random() * memes.length);
-      document.getElementById("memeText").textContent = memes[index];
+      const i = Math.floor(Math.random() * memes.length);
+      document.getElementById("memeText").textContent = memes[i];
     }
 
     function revealWho() {

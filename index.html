@@ -1,107 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Mustafa Meme Site</title>
-    <style>
-        body {
-            background: #f0f0f0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 30px;
-        }
+  <meta charset="UTF-8">
+  <title>Mustafa Meme Machine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #e0eafc, #cfdef3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 30px;
+    }
 
-        .meme-container {
-            position: relative;
-            width: 320px;
-            max-width: 90%;
-            margin-top: 20px;
-            display: none;
-        }
+    h1 {
+      margin-bottom: 10px;
+      color: #222;
+    }
 
-        .meme-container img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
+    .buttons {
+      margin-bottom: 20px;
+    }
 
-        .meme-text {
-            position: absolute;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            text-shadow: 2px 2px 4px #000;
-            text-align: center;
-            width: 90%;
-        }
+    button {
+      margin: 5px;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #3949ab;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-        button {
-            margin: 10px;
-            padding: 10px 18px;
-            font-size: 15px;
-            border: none;
-            background-color: #1a237e;
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+    button:hover {
+      background-color: #1a237e;
+    }
 
-        button:hover {
-            background-color: #3949ab;
-        }
+    .meme-container {
+      position: relative;
+      max-width: 360px;
+      width: 100%;
+      display: none;
+    }
 
-        .who-container {
-            margin-top: 25px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #880e4f;
-            display: none;
-        }
-    </style>
+    .meme-container img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .meme-text {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      text-shadow: 2px 2px 5px black;
+      text-align: center;
+      width: 90%;
+    }
+
+    .who {
+      margin-top: 25px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #c62828;
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
-    <h2>Mustafa Meme Generator</h2>
+  <h1>Mustafa Meme Machine</h1>
 
-    <button onclick="revealMeme()">Reveal Mustafa</button>
-    <button onclick="generateMeme()">Change Meme</button>
+  <div class="buttons">
+    <button onclick="revealMeme()">Show Mustafa</button>
+    <button onclick="generateMeme()">New Meme</button>
     <button onclick="revealWho()">Who is Mustafa?</button>
+  </div>
 
-    <div class="meme-container" id="memeContainer">
-        <img src="mustafa.jpg" alt="Mustafa">
-        <div class="meme-text" id="memeText">First meme coming up...</div>
-    </div>
+  <div class="meme-container" id="memeContainer">
+    <img src="mustafa.jpg" alt="Mustafa">
+    <div class="meme-text" id="memeText">First meme loading...</div>
+  </div>
 
-    <div class="who-container" id="whoText">Mustafa is gay</div>
+  <div class="who" id="whoText">Mustafa is gay</div>
 
-    <script>
-        const memes = [
-            "When Mustafa opens VS Code like it's a game",
-            "Mustafa be like: 'I didn't study, but got full mark'",
-            "When WiFi goes down and Mustafa starts coding offline",
-            "That face when the teacher says: 'group project'",
-            "Mustafa in class: 90% silent, 10% destroying people with one-liners"
-        ];
+  <script>
+    const memes = [
+      "When Mustafa opens VS Code like it's a game",
+      "Mustafa be like: 'I didn't study... got 100%'",
+      "That moment when Mustafa touches the keyboard = magic",
+      "Mustafa doesn't debug... bugs fix themselves.",
+      "Mustafa is the only guy who can crash Google Docs offline."
+    ];
 
-        function revealMeme() {
-            document.getElementById("memeContainer").style.display = "block";
-            generateMeme(); // show first meme immediately
-        }
+    function revealMeme() {
+      document.getElementById("memeContainer").style.display = "block";
+      generateMeme();
+    }
 
-        function generateMeme() {
-            const index = Math.floor(Math.random() * memes.length);
-            document.getElementById("memeText").textContent = memes[index];
-        }
+    function generateMeme() {
+      const index = Math.floor(Math.random() * memes.length);
+      document.getElementById("memeText").textContent = memes[index];
+    }
 
-        function revealWho() {
-            document.getElementById("whoText").style.display = "block";
-        }
-    </script>
+    function revealWho() {
+      document.getElementById("whoText").style.display = "block";
+    }
+  </script>
 
 </body>
 </html>
